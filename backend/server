@@ -1,0 +1,31 @@
+from neo4jrestclient import client
+from neo4jrestclient.client import GraphDatabase
+import requests
+import json
+import unicodedata
+import urllib2
+import urllib
+
+# payload = {"layer" : 'geom',  'pointX':114.1080621, 'pointY': 22.5426252, "distanceInKm" : 4}
+# r = requests.post(url, data=json.dumps(payload), auth=('neo4j', '18843'))
+# content = json.loads(r.content)
+# print r.content
+# sum = 0
+# count = 0
+# for object in content :
+#     if 'value' in object['data']:
+#         value = object['data'].get('value')
+#         print(value)
+#         sum += float(value)
+#         count += 1
+# print ("final value of the region is %f", sum/count)
+
+
+
+url = 'http://localhost:7474/db/data/ext/SpatialPlugin/graphdb/findGeometriesInBBox'
+payload = {"layer" : 'geom',  'miny':22.522388566344084, 'maxy': 22.655838847314328, 'minx':113.79947662353516, 'maxx':114.12975311279297, 'value': 54.89658099}
+r = requests.post(url, data=json.dumps(payload), auth=('neo4j', '18843'))
+print r.status_code
+print r._content
+
+
