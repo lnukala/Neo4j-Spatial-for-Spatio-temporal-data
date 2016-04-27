@@ -29,7 +29,6 @@ co = []
 co2 = []
 o3 = []
 
-
 r = requests.post(url, data=json.dumps(payload), headers=headers,  auth=('neo4j', '18843'))
 if(r.status_code != 201):
     print "Error connecting to the index portal"
